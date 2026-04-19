@@ -1,0 +1,58 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Pipeline",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "/home/src/unified-venv/bin/python",
+            "module": "src.pipeline",
+            "args": [
+                "--tokens-file", "data/sample_isins.txt"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/src"
+            },
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Debug Test Pipeline",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "/home/src/unified-venv/bin/python",
+            "module": "pytest",
+            "args": [
+                "tests/test_pipeline.py",
+                "-v"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Debug Query Embeddings",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "/home/src/unified-venv/bin/python",
+            "module": "src.query_embeddings",
+            "args": [
+                "--model", "extended-embedding",
+                "--input", "US0378331005"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/src"
+            },
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Debug Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "/home/src/unified-venv/bin/python",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}
